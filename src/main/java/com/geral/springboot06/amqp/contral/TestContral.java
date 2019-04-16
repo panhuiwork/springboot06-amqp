@@ -8,7 +8,9 @@ import java.util.Map;
 import org.springframework.amqp.core.AmqpAdmin;
 import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.DirectExchange;
+import org.springframework.amqp.core.FanoutExchange;
 import org.springframework.amqp.core.Queue;
+import org.springframework.amqp.core.TopicExchange;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -130,8 +132,12 @@ public class TestContral {
 //		amqpAdmin.deleteExchange(arg0)
 
 		//测试一下
-		amqpAdmin.declareQueue(new Queue("phtest.que",true));
-		amqpAdmin.declareBinding(new Binding("phtest.que",Binding.DestinationType.QUEUE, "exchange.fanout", "phtest.que", null));
+//		DirectExchange xx=new DirectExchange("ph1.exchange");
+//		FanoutExchange xxx=new FanoutExchange("ph1.exchange");
+//		TopicExchange xxxx=new TopicExchange("ph1.exchange");
+//		amqpAdmin.declareExchange(xx);
+//		amqpAdmin.declareQueue(new Queue("phtest1.que",true));
+//		amqpAdmin.declareBinding(new Binding("phtest1.que",Binding.DestinationType.QUEUE, "ph.exchange", "phtest1.que", null));
 		return "创建一个消息队列";
 	}
 }
